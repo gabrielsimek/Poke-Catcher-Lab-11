@@ -1,9 +1,9 @@
 import Pokemon from './poke-data.js';
 import { getPokeDex, setPokeDex } from './local-storage-utils.js';
-
-export function findById(array, id) {
+//name not ID!!!!
+export function findByName(array, name) {
     for (let item of array){
-        if (item.id === id){
+        if (item.name === name){
             return item;
         }
     }
@@ -47,19 +47,30 @@ export function generateThreePokemon(){
     return threeNewPokemon;
 
 }
+
+export function initializeGame() {
+    const pokeArray = generateThreePokemon();
+    const pokeOne = pokeArray[0];
+    const pokeTwo = pokeArray[1];
+    const pokeThree = pokeArray[2];
+    encounterPokemon(pokeOne);
+    encounterPokemon(pokeTwo);
+    encounterPokemon(pokeThree);
+    console.log(pokeOne, pokeTwo, pokeThree);
+}
 // encounter poke will be first thing to set local storage?
 export function encounterPokemon(pokeObj) {
     const pokeDex = getPokeDex();
     
     // const matchingPoke = findPokemonByName(pokeObj.pokemon);
-    const matchingPoke = findById(pokeDex, pokeObj.pokemon);
-    console.log(matchingPoke);
-    //use id!
+    const matchingPoke = findByName(pokeDex, pokeObj.pokemon);
+    
+   
     if (matchingPoke) {
         matchingPoke.encounters++;
     } else {
         const newPokeDexPoke = {
-            id: pokeObj.pokemon,
+            name: pokeObj.pokemon,
             encounters: 1,
             catches: 0
         };
@@ -73,7 +84,7 @@ export function encounterPokemon(pokeObj) {
 
 export function catchPokemon(pokeObj) {
     const pokeDex = getPokeDex();
-    const matchingPoke = findById(pokeDex, pokeObj.pokemon);
+    const matchingPoke = findByName(pokeDex, pokeObj.pokemon);
     matchingPoke.catches++;
 
     setPokeDex(pokeDex);
