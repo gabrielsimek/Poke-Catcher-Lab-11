@@ -1,10 +1,10 @@
-import Pokemon from '../poke-data.js';
-import { findByName } from '../utils.js';
-import { getPokeDex } from '../local-storage-utils.js';
+// import Pokemon from '../poke-data.js';
+// import { findByName } from '../utils.js';
+// import { getPokeDex } from '../local-storage-utils.js';
 import { getResults } from './results-utils.js';
 const results = getResults();
 const [caught, encountered, notEncountered, notCaught] = results;
-const buttonEl = document.getElementById('play-again')
+const buttonEl = document.getElementById('play-again');
 
 const caughtEl = document.getElementById('caught');
 caughtEl.textContent = JSON.stringify(caught);

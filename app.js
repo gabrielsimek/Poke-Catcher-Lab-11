@@ -1,7 +1,7 @@
 // import functions and grab DOM elements
-import Pokemon from './poke-data.js';
-import { getPokeDex, setPokeDex } from './local-storage-utils.js';
-import { catchPokemon, encounterPokemon, findByName, generateAndEncounter, findPokemonByName, caughtPokemon } from './utils.js';
+// import Pokemon from './poke-data.js';
+// import { getPokeDex, setPokeDex } from './local-storage-utils.js';
+import { catchPokemon, generateAndEncounter, findPokemonByName, caughtPokemon } from './utils.js';
 
 
 const buttonEl = document.getElementById('button');
