@@ -1,11 +1,11 @@
 // import Pokemon from '../poke-data.js';
 // import { findByName } from '../utils.js';
 // import { getPokeDex } from '../local-storage-utils.js';
-import { getResults } from './results-utils.js';
+// import { getResults } from './results-utils.js';
 import { getPokeDex } from '../local-storage-utils.js';
 const pokeDex = getPokeDex();
 
-console.log(pokeDex);
+
 const pokeName = [];
 const caught = [];
 const encountered = [];
@@ -53,7 +53,7 @@ var myChart = new Chart(ctx, { //eslint-disable-line
             ],
             borderWidth: 1
         }
-    ]
+        ]
     },
     options: {
         scales: {
