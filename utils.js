@@ -56,7 +56,8 @@ export function initializeGame() {
     encounterPokemon(pokeOne);
     encounterPokemon(pokeTwo);
     encounterPokemon(pokeThree);
-    console.log(pokeOne, pokeTwo, pokeThree);
+    return pokeArray;
+    // console.log(pokeOne, pokeTwo, pokeThree);
 }
 // encounter poke will be first thing to set local storage?
 export function encounterPokemon(pokeObj) {
