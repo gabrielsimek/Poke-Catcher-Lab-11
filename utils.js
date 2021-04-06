@@ -27,7 +27,16 @@ function getRandomNumber(){
 }
 
 
+export function caughtPokemon(){
+    const pokeDex = getPokeDex();
+    let totalCaught = 0;
+    for (let poke of pokeDex) {
+        totalCaught += poke.catches;
+        
 
+    }
+    return totalCaught;
+}
 export function generateThreePokemon(){
     let indexOne = getRandomNumber();
     let indexTwo = getRandomNumber();

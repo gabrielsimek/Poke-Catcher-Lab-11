@@ -1,19 +1,20 @@
 // import functions and grab DOM elements
 import Pokemon from './poke-data.js';
 import { getPokeDex, setPokeDex } from './local-storage-utils.js';
-import { catchPokemon, encounterPokemon, findByName, generateAndEncounter, findPokemonByName } from './utils.js';
+import { catchPokemon, encounterPokemon, findByName, generateAndEncounter, findPokemonByName, caughtPokemon } from './utils.js';
 
 
 const buttonEl = document.getElementById('button');
-console.log(buttonEl);
+const caughtEl = document.getElementById('caught-display');
+
+
+
 function startGame(){
     const arrayOfThreePoke = generateAndEncounter();
     const [pokeOne, pokeTwo, PokeThree] = arrayOfThreePoke;
     
 
-    const label1 = document.getElementById('poke-1-label');
-    const label2 = document.getElementById('poke-2-label');
-    const label3 = document.getElementById('poke-3-label');
+  
 
     const radio1 = document.getElementById('radio-1');
     const radio2 = document.getElementById('radio-2');
@@ -34,19 +35,25 @@ function startGame(){
     
 }
 startGame();
+
 let matches = 0;
 buttonEl.addEventListener('click', () => {
     matches++;
-    if (matches < 10){
-        const selected = document.querySelector('input:checked');
+   
+    const selected = document.querySelector('input:checked');
 
-        const selectedPoke = findPokemonByName(selected.value);
-        catchPokemon(selectedPoke);
-        startGame();}
-    
-
-
+    const selectedPoke = findPokemonByName(selected.value);
+    catchPokemon(selectedPoke);
+        
+    startGame();
+    caughtEl.textContent = caughtPokemon();
+    if (matches >= 10){
+        window.location = 'results/index.html';
+    }
+        
 });
+
+
 
 // function renderDom() {
 //     for (let n = 1; n < 4; n++){
