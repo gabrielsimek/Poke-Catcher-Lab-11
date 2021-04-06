@@ -10,21 +10,22 @@ export function findByName(array, name) {
     return null;
 }
 
-// export function findPokemonByName(name){
-//     for (let poke of Pokemon) {
-//         if (poke.pokemon === name) {
-//             return poke;
-//         }
+export function findPokemonByName(name){
+    for (let poke of Pokemon) {
+        if (poke.pokemon === name) {
+            return poke;
+        }
        
-//     }
+    }
     
-// }
+}
 
 function getRandomNumber(){
     const randomNum = Math.floor(Math.random() * Pokemon.length);
     return randomNum;
 
 }
+
 
 
 export function generateThreePokemon(){
@@ -48,7 +49,7 @@ export function generateThreePokemon(){
 
 }
 
-export function initializeGame() {
+export function generateAndEncounter() {
     const pokeArray = generateThreePokemon();
     const pokeOne = pokeArray[0];
     const pokeTwo = pokeArray[1];
