@@ -1,5 +1,5 @@
 import Pokemon from './poke-data.js';
-import { getPokeDex, setPokeDex } from './local-storage-utils.js';
+import { getLocalStorage, getPokeDex, setLocalStorage, setPokeDex } from './local-storage-utils.js';
 //name not ID!!!!
 export function findByName(array, name) {
     for (let item of array){
@@ -101,4 +101,29 @@ export function catchPokemon(pokeObj) {
     setPokeDex(pokeDex);
     return pokeDex;
 
+}
+
+export function incrementTotals(){
+    const pokeDex = getPokeDex();
+    let totalDex = getLocalStorage('ALLTIME');
+    
+    for (let poke of pokeDex) {
+        const matchingPoke = findByName(totalDex, poke.name);
+        ;
+        if (matchingPoke){
+            matchingPoke.encounters += poke.encounters;
+            matchingPoke.catches += poke.catches;
+        } else {
+            const newTotalPoke = {
+                name: poke.name,
+                encounters: poke.encounters,
+                catches: poke.catches
+            };
+            
+            totalDex.push(newTotalPoke);
+        }
+        
+
+    } 
+    setLocalStorage('ALLTIME', totalDex);
 }
