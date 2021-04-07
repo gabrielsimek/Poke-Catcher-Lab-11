@@ -109,7 +109,6 @@ export function incrementTotals(){
     
     for (let poke of pokeDex) {
         const matchingPoke = findByName(totalDex, poke.name);
-        ;
         if (matchingPoke){
             matchingPoke.encounters += poke.encounters;
             matchingPoke.catches += poke.catches;

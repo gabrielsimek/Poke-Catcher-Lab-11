@@ -2,7 +2,11 @@
 // import { findByName } from '../utils.js';
 // import { getPokeDex } from '../local-storage-utils.js';
 // import { getResults } from './results-utils.js';
-import { setLocalStorage, getLocalStorage } from '../local-storage-utils.js';
+import { getLocalStorage } from '../local-storage-utils.js';
+// import { incrementTotals } from './results-utils.js';
+// localStorage.removeItem('POKEDEX');
+localStorage.removeItem('POKEDEX');
+
 const allTimeDex = getLocalStorage('ALLTIME');
 
 

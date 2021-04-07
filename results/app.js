@@ -2,10 +2,10 @@
 // import { findByName } from '../utils.js';
 // import { getPokeDex } from '../local-storage-utils.js';
 // import { getResults } from './results-utils.js';
-import { getPokeDex, setLocalStorage } from '../local-storage-utils.js';
+import { getPokeDex } from '../local-storage-utils.js';
 import { incrementTotals } from '../utils.js';
 const pokeDex = getPokeDex();
-
+incrementTotals();
 
 const pokeName = [];
 const caught = [];
@@ -87,7 +87,7 @@ var myChart = new Chart(ctx, { //eslint-disable-line
 
 const buttonEl = document.getElementById('play-again');
 buttonEl.addEventListener('click', () => {
-    incrementTotals();
+    
     localStorage.removeItem('POKEDEX');
     window.location = '../index.html';
 });
