@@ -2,9 +2,8 @@
 // import { findByName } from '../utils.js';
 // import { getPokeDex } from '../local-storage-utils.js';
 // import { getResults } from './results-utils.js';
-import { getPokeDex, setLocalStorage } from '../local-storage-utils.js';
-import { incrementTotals } from '../utils.js';
-const pokeDex = getPokeDex();
+import { setLocalStorage, getLocalStorage } from '../local-storage-utils.js';
+const allTimeDex = getLocalStorage('ALLTIME');
 
 
 const pokeName = [];
@@ -12,7 +11,7 @@ const caught = [];
 const encountered = [];
 
 
-for (let pokemon of pokeDex) {
+for (let pokemon of allTimeDex) {
     pokeName.push(pokemon.name);
     caught.push(pokemon.catches);
     encountered.push(pokemon.encounters);
@@ -87,7 +86,7 @@ var myChart = new Chart(ctx, { //eslint-disable-line
 
 const buttonEl = document.getElementById('play-again');
 buttonEl.addEventListener('click', () => {
-    incrementTotals();
+    
     localStorage.removeItem('POKEDEX');
     window.location = '../index.html';
 });

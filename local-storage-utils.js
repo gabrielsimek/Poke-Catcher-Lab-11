@@ -17,3 +17,21 @@ export function setPokeDex(parsedPokeDex){
     localStorage.setItem(POKEDEX, stringyPokeDex);
 
 }
+
+export function getLocalStorage(key){
+    const stringyData = localStorage.getItem(key);
+    const parsedData = JSON.parse(stringyData);
+
+    if (parsedData){
+        return parsedData;
+    } else {
+        return [];
+    }
+    
+}
+
+export function setLocalStorage(key, parsedArray){
+    const stringyArray = JSON.stringify(parsedArray);
+    localStorage.setItem(key, stringyArray);
+
+}

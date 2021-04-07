@@ -1,6 +1,7 @@
 // import functions and grab DOM elements
 // import Pokemon from './poke-data.js';
 // import { getPokeDex, setPokeDex } from './local-storage-utils.js';
+import { setLocalStorage } from './local-storage-utils.js';
 import { catchPokemon, generateAndEncounter, findPokemonByName, caughtPokemon } from './utils.js';
 
 
@@ -46,6 +47,7 @@ buttonEl.addEventListener('click', () => {
     catchPokemon(selectedPoke);
         
     startGame();
+    // setLocalStorage('ALLTIME', pokDe)
     caughtEl.textContent = caughtPokemon();
     if (matches >= 10){
         window.location = 'results/index.html';
